@@ -2,6 +2,12 @@
 const express = require('express');
 const { Sequelize } = require('sequelize'); 
 const bodyParser = require('body-parser');
+require('dotenv').config();
+
+//console.log(process.env);
+
+// IMPORT routers
+const userRoutes = require('./routes/user');
 
 // Create an Express App
 const app = express();
@@ -36,6 +42,9 @@ app.use((req, res, next) => {
   res.json({ message: 'Votre requête a bien été reçue !' });
   next();
 });
+
+// SAVE THE ROUTES (Shows for each route => the according router (imported above))
+app.use('/api/auth', userRoutes);
 
 // Export the Express App (so that it becomes available on other files)
 module.exports = app; 
