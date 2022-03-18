@@ -1,6 +1,7 @@
 // IMPORT
 const express = require('express');
 const { Sequelize } = require('sequelize'); 
+//const Sequelize = require('sequelize');
 const bodyParser = require('body-parser');
 require('dotenv').config();
 
@@ -21,11 +22,13 @@ const sequelize = new Sequelize('groupomania', 'root', 'Noob28Bun*', {
 // Test if the connection with MySQL is ok
 sequelize.authenticate()
   .then(function() {
-    console.log('Connection has been established successfully.');
+    console.log('Connection with the database has been established successfully.');
   }, function(error) {
     console.log('Unable to connect to the database:', error);
   });
 
+// Exports the sequelize instance
+module.exports = sequelize; 
 
 // General Middleware => CORS (allows a user to access resources from a server located on another origin than the current site)
 app.use((req, res, next) => {

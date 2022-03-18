@@ -1,9 +1,10 @@
 // IMPORT packages (encryption package & package for the creation of authentification tokens)
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+//const { Sequelize } = require('sequelize'); 
 
 // IMPORT the user model (Because we will need to save and read users in this middleware)
-//const User = require('../models/User');
+const User = require('../models/User');
 
 // IMPORT the module that loads environment variables
 require('dotenv').config();
