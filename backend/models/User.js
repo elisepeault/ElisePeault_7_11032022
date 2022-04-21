@@ -1,23 +1,8 @@
-// Import Sequelize
-//const { Sequelize, DataTypes } = require('sequelize');
-
-//const sequelize = new Sequelize('groupomania', 'root', 'Noob28Bun*');
-//const sequelize = require('../app');
 
 module.exports = (DataTypes, sequelize) => {
   const User = sequelize.define('user', {
     // Model attributes are defined here
-    id: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true,
-      allowNull: false
-    },
-    lastName: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    firstName: {
+    userName: {
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -25,7 +10,11 @@ module.exports = (DataTypes, sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
   })
-  //return User;
+  return User;
 };

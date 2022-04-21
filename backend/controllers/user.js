@@ -14,6 +14,7 @@ exports.signup = (req, res, next) => {
     bcrypt.hash(req.body.password, 10) // Hash the password. 2 elements : password in the request body & salt (we run the hash algorithm 10 times).
         .then(hash => {        // We use the hash (created with bcrypt) to create a new user with an hashed password
             const user = new User({
+                userName: req.body.userName,
                 email: req.body.email,
                 password: hash
             });
